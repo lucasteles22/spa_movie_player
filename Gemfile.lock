@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/Netflix/fast_jsonapi
+  revision: cd1bc0968e2c1c3ada4d3c73579a53bc7bf7ac44
+  branch: dev
+  specs:
+    fast_jsonapi (1.1.1)
+      activesupport (>= 4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -211,6 +219,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  fast_jsonapi!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
