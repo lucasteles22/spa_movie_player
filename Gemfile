@@ -5,10 +5,6 @@ ruby '2.5.1'
 
 # Autenticação
 gem 'devise'
-# Serialização do Json
-gem 'fast_jsonapi', git: "https://github.com/Netflix/fast_jsonapi", branch: "dev"
-# Pesquisas dentro do Postgresql
-gem 'pg_search'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
