@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_22_234222) do
+ActiveRecord::Schema.define(version: 2018_05_22_234943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "fuzzystrmatch"
@@ -31,6 +31,23 @@ ActiveRecord::Schema.define(version: 2018_05_22_234222) do
     t.datetime "updated_at", null: false
     t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "thumbnail_key"
+    t.string "video_key"
+    t.integer "episode_number"
+    t.string "featured_thumbnail_key"
+    t.bigint "serie_id"
+    t.bigint "category_id"
+    t.string "thumbnail_cover_key"
+    t.boolean "highlighted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_movies_on_category_id"
+    t.index ["serie_id"], name: "index_movies_on_serie_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -86,6 +103,8 @@ ActiveRecord::Schema.define(version: 2018_05_22_234222) do
   end
 
   add_foreign_key "favorites", "users"
+  add_foreign_key "movies", "categories"
+  add_foreign_key "movies", "series", column: "serie_id"
   add_foreign_key "reviews", "users"
   add_foreign_key "series", "categories"
 end
