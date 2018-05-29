@@ -26,8 +26,7 @@ class Api::V1::MovieSerializer
 
   attribute :featured_thumbnail_url do |object|
     if object[:featured_thumbnail_key].present?
-      AWS_BUCKET.object("thumbnails/#{object.featured_thumbnail_key}").pres
-      igned_url(:get, expires_in: 120)
+      AWS_BUCKET.object("thumbnails/#{object.featured_thumbnail_key}").presigned_url(:get, expires_in: 120)
     end
   end
 
